@@ -17,9 +17,9 @@ set(libapiheaders
 set(libdepheaders "")
 
 set(libsources
+"src/dns.h"
 "src/dns.cpp" # TODO
 "src/err.cpp"
-"src/nam.cpp" # TODO
 "src/ndb.cpp" # TODO
 "src/rnd.cpp"
 )
@@ -98,7 +98,7 @@ add_library(resolw ${libheaders} ${libsources})
 target_compile_options(resolw PRIVATE ${compile_flags})
 target_compile_definitions(resolw PRIVATE ${compiledefs})
 target_include_directories(resolw PRIVATE ${compat_dirs})
-target_link_libraries(resolw -lws2_32 -lkernel32)
+target_link_libraries(resolw -lws2_32 -ldnsapi -lkernel32 -lntdll)
 #  -ladvapi32 -lsecur32
 
 set(exesources "samples/namequery.cpp")
@@ -107,7 +107,9 @@ target_compile_definitions(namequery PRIVATE ${compiledefs})
 target_include_directories(namequery PRIVATE ${compat_dirs})
 target_link_libraries(namequery resolw)
 
-install(FILES ${libapiheaders} DESTINATION include)
+install(FILES "include/resolw/resolw_types.h"
+                                 DESTINATION include/resolw)
+install(FILES "include/resolv.h" DESTINATION include)
 install(TARGETS resolw namequery DESTINATION bin)
 
 set(CPACK_PACKAGE_NAME "resolw")
