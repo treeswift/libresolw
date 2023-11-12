@@ -1,6 +1,23 @@
 BSD 3-Clause License
 
-Copyright (c) 2023, Paul McArrow
+The following source code files have a copyright assigned:
+
+src/xxbsd/res_comp.c:
+   Copyright (c) 1985, 1993
+     The Regents of the University of California.  All rights reserved.
+   Portions Copyright (c) 1993 by Digital Equipment Corporation.
+
+include/resolw/xxbsd/endian_h/sys/endian.h
+   Copyright (c) 1997 Niklas Hallqvist.  All rights reserved.
+
+include/resolw/xxbsd/nameser_h/sys/nameser.h
+   Copyright (c) 1983, 1989, 1993
+     The Regents of the University of California.  All rights reserved.
+   Portions Copyright (c) 1993 by Digital Equipment Corporation.
+
+include/resolw/xxbsd/netdb_h/netdb.h
+   Copyright (c) 2001 Jakob Schlyter. All rights reserved.
+   Portions Copyright (c) 1999-2001 Internet Software Consortium.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:

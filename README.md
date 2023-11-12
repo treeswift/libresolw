@@ -106,6 +106,22 @@ The BSD variant of `endian.h` is borrowed from Bionic: https://github.com/aosp-m
 ### WinSock2 forwards
 
 Files in `include/resolw/ws2_fwd` contain no copyrightable code. Any of them can be substituted at build time with a single `touch` or `ln -s`.
+Example:
+
+```
+INCLUDE=$PREFIX/include
+
+mkdir -p $INCLUDE/sys && echo '#include <ws2tcpip.h>' \
+    > $INCLUDE/sys/socket.h
+
+mkdir -p $INCLUDE/arpa && echo '#include <winsock2.h>' \
+    > $INCLUDE/arpa/inet.h
+
+mkdir -p $INCLUDE/netinet && echo '#include <winsock2.h>' \
+| tee $INCLUDE/netinet/in_systm.h \
+| tee $INCLUDE/netinet/in.h \
+    > $INCLUDE/netinet/ip.h
+```
 
 ## Code of Conduct
 
