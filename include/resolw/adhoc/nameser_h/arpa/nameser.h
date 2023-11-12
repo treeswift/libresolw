@@ -22,7 +22,12 @@
 #define NAMESERVER_PORT	53  /* well-known DNS protocol port */
 
 /* RFC 833 definitions follow: */
-#define MAXDNAME 1025       /* unpacked domain name size */
+#define MAXDNAME 1025   /* maximum unpacked (expanded) domain name size */
+#define MAXCDNAME 255   /* maximum compressed domain name size */
+#define MAXLABEL  63    /* maximum domain label length */
+#define HFIXEDSZ  12    /* fixed data bytes in header */
+#define QFIXEDSZ  4     /* fixed data bytes in query */
+#define RRFIXEDSZ 10    /* fixed data bytes in r record */
 
 /* Request opcodes: */
 enum {
